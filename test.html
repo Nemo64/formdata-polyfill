@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+    </head>
+    <body>
+        <form id="form" action="#">
+            <input type="text" name="url" placeholder="url" value="https://requestb.in/1c9roe11">
+            <input type="text" name="payload" placeholder="payload" value="placeholder">
+
+            <input type="checkbox" name="checkbox_checked" checked>
+            <input type="checkbox" name="checkbox_checked_value" value="value" checked>
+            <input type="checkbox" name="checkbox_unchecked">
+
+            <input type="radio" name="radio" checked>
+            <input type="radio" name="radio">
+            <input type="radio" name="radio">
+
+            <select name="select_unselected">
+                <option value="default">option</option>
+            </select>
+            <select name="select_selected">
+                <option value="value" selected>option</option>
+            </select>
+            <select name="select_multiple" multiple>
+                <option value="option1" selected>option1</option>
+                <option value="option2" selected>option2</option>
+                <option value="option3" selected>option3</option>
+                <option value="option4">option4</option>
+            </select>
+
+
+            <button type="button">useless button</button>
+            <button type="submit">send</button>
+        </form>
+
+        <script src="formdata-polyfill.js"></script>
+        <script>
+            var form = document.getElementById('form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                var formData = new FormData(this);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', formData.get('url'));
+                xhr.onreadystatechange = function (e) {
+                    console.log(e);
+                };
+                console.log('now sending form data', formData);
+                xhr.send(formData);
+            });
+        </script>
+    </body>
+</html>

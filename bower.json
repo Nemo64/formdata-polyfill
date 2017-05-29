@@ -1,0 +1,14 @@
+{
+  "name": "formdata-polyfill",
+  "description": "",
+  "main": "formdata-polyfill.js",
+  "keywords": [
+    "formdata",
+    "polyfill"
+  ],
+  "authors": [
+    "Marco Pfeiffer <git@marco.zone>"
+  ],
+  "license": "MIT",
+  "homepage": ""
+}
