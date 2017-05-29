@@ -28,9 +28,7 @@
             );
         }
 
-        this._data = '';
-        this._map = {};
-        this._boundary = "----FormDataPolyfill" + Date.now().toString(16);
+        this._data = [];
 
         if (!form instanceof HTMLFormElement) {
             // the standard implementation actually doesn't think that an error should be thrown
@@ -138,7 +136,7 @@
         }
 
         var result = new Array(data._data.length);
-        var sBoundary = "----" + Date.now().toString(16);
+        var sBoundary = "----FormDataPolyfill" + Date.now().toString(16);
         this.setRequestHeader("Content-Type", "multipart/form-data; boundary=" + sBoundary);
 
         for (var i = 0; i < data._data.length; i++) {
